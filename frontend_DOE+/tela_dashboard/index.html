@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - DOE+</title>
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styleDashboard.css">
+  <link rel="stylesheet" href="../brand.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+		<div class="side-menu-header">
+			<span class="side-menu-title">DOE<span class="logo-plus">+</span></span>
+			<button class="close-menu" id="closeMenu" type="button" aria-label="Fechar menu">&times;</button>
+		</div>
+    <nav class="side-menu-links">
+      <button class="menu-btn" onclick="window.location.href='../Tela inicial/index.html'">Tela Inicial</button>
+      <button class="menu-btn" onclick="window.location.href='../tela benefícios/index.html'">Benefícios</button>
+      <button class="menu-btn" onclick="window.location.href='../tela_chatbot/index.html'">Conversar com a LIA</button>
+      <button class="menu-btn" onclick="window.location.href='../tela_hemoc_próximos/hemocprox.html'">Hemocentros próximos</button>
+      <button class="menu-btn" onclick="window.location.href='../tela_perfil/index.html'">Meu perfil</button>
+    </nav>
+  </aside>
+
+  <header class="navbar">
+    <button class="menu-icon" id="hamburgerBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sideMenu">&#9776;</button>
+    <a class="logo doe-brand-link" href="../Tela inicial/index.html" aria-label="DOE+ - tela inicial"><img class="doe-brand-image" src="../assets/logo-doe-plus.png" alt="DOE+" /></a>
+    <a class="user-avatar profile-avatar" data-profile-avatar href="../tela_perfil/index.html" aria-label="Abrir meu perfil">U</a>
+  </header>
+
+  <main class="dashboard-container">
+
+    <section class="dashboard-heading">
+      <h1>Dashboard Pessoal</h1>
+      <p>Resumo anual das suas doações</p>
+    </section>
+
+    <section class="metrics-section" aria-labelledby="metrics-title">
+      <div class="metrics-header">
+        <div>
+          <h2 id="metrics-title">Visão geral</h2>
+          <p>Selecione um indicador para ver o histórico mensal.</p>
+        </div>
+        <button class="compare-btn" id="compareBtn" type="button" aria-pressed="false" aria-controls="simpleChart">
+          Comparar anos
+        </button>
+      </div>
+
+      <div class="kpi-grid" role="group" aria-label="Indicadores de doação">
+        <button class="card kpi-card" type="button" data-metric="current" aria-pressed="true" aria-controls="simpleChart">
+          <span class="kpi-label" id="currentYearLabel">Doações neste ano</span>
+          <span class="kpi-value" id="kpi1">6</span>
+          <span class="kpi-subtext">Doações registradas</span>
+        </button>
+
+        <button class="card kpi-card" type="button" data-metric="previous" aria-pressed="false" aria-controls="simpleChart">
+          <span class="kpi-label" id="previousYearLabel">Doações no ano anterior</span>
+          <span class="kpi-value" id="kpi2">5</span>
+          <span class="kpi-subtext">Mesmo período do ano</span>
+        </button>
+
+        <button class="card kpi-card" type="button" data-metric="comparison" aria-pressed="false" aria-controls="simpleChart">
+          <span class="kpi-label">Variação anual</span>
+          <span class="kpi-value" id="kpi3">+20%</span>
+          <span class="kpi-subtext">Em relação ao ano anterior</span>
+        </button>
+      </div>
+    </section>
+
+
+<section class="card chart-card" id="doadores-section">
+  <div class="chart-header">
+      <div>
+          <h3>Doadores cadastrados</h3>
+          <p>Dados recebidos da API Doe+</p>
+      </div>
+  </div>
+
+  <p id="totalDoadores">Carregando doadores...</p>
+  <div id="listaDoadores"></div>
+</section>
+
+    <section class="card chart-card">
+      <div class="chart-header">
+        <div>
+          <h3 id="chartTitle">Doações por mês</h3>
+          <p id="chartDescription">Histórico mensal do período selecionado.</p>
+        </div>
+      </div>
+      <div class="chart-container">
+        <canvas id="simpleChart" role="img" aria-label="Gráfico de doações por mês"></canvas>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    DOE+ &bull; Desenvolvido por MedIA-Tech &bull; 2026
+  </footer>
+
+  <script src="scriptdashboard.js"></script>
+  <script src="../tela_acesso/sessao.js"></script>
+  <script src="api.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Encontre hemocentros próximos da sua localização.">
+	<title>Hemocentros próximos | DOE+</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="hemocprox.css">
+	<link rel="stylesheet" href="../brand.css">
+</head>
+<body>
+	<div class="overlay" id="overlay"></div>
+
+	<aside class="side-menu" id="sideMenu" aria-hidden="true">
+		<div class="side-menu-header">
+			<span class="side-menu-title">DOE<span class="logo-plus">+</span></span>
+			<button class="close-menu" id="closeMenu" type="button" aria-label="Fechar menu">&times;</button>
+		</div>
+
+		<nav class="side-menu-links" aria-label="Navegação principal">
+			<a class="menu-btn" href="../Tela inicial/index.html">Tela inicial</a>
+			<a class="menu-btn" href="../tela_dashboard/index.html">Dashboard pessoal</a>
+			<a class="menu-btn" href="../tela benefícios/index.html">Benefícios</a>
+			<a class="menu-btn" href="../tela_chatbot/index.html">Conversar com a LIA</a>
+					<a class="menu-btn" href="../tela_perfil/index.html">Meu perfil</a>
+		</nav>
+
+		<div class="sidebar-footer">
+			<p>Doe sangue. Fortaleça vidas.</p>
+		</div>
+	</aside>
+
+	<header class="top-header">
+		<button class="hamburger-btn" id="openMenuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sideMenu">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</button>
+
+		<a class="brand doe-brand-link" href="../Tela inicial/index.html" aria-label="Ir para a tela inicial">
+			<img class="doe-brand-image" src="../assets/logo-doe-plus.png" alt="DOE+">
+		</a>
+
+		<a class="user-quick-profile" href="../tela_perfil/index.html" aria-label="Abrir perfil do usuário">
+			<span class="avatar profile-avatar" data-profile-avatar>U</span>
+		</a>
+	</header>
+
+	<main class="nearby-container">
+		<section class="page-intro" aria-labelledby="page-title">
+			<span class="section-kicker">Encontre um local para doar</span>
+			<h1 id="page-title">Hemocentros próximos</h1>
+			<p>Informe sua localização para consultar unidades de coleta perto de você.</p>
+		</section>
+
+		<section class="location-search" aria-labelledby="search-title">
+			<div class="section-heading">
+				<h2 id="search-title">Qual região devemos consultar?</h2>
+				<p>Você pode usar sua localização atual ou pesquisar por cidade, estado ou CEP.</p>
+			</div>
+
+			<form id="location-form" class="location-form">
+				<div class="form-field">
+					<label for="location-input">Localização</label>
+					<input
+						id="location-input"
+						name="location"
+						type="search"
+						placeholder="Digite cidade, estado ou CEP"
+						autocomplete="postal-code"
+					>
+				</div>
+				<button id="use-location-btn" class="location-btn" type="button">
+					Usar minha localização
+				</button>
+				<button class="search-btn" type="submit">Buscar hemocentros</button>
+			</form>
+
+			<p id="location-status" class="form-status" role="status" aria-live="polite"></p>
+		</section>
+
+		<section class="results-section" aria-labelledby="results-title">
+			<div class="results-header">
+				<div>
+					<h2 id="results-title">Unidades encontradas</h2>
+					<p id="results-summary">Os resultados aparecerão depois da busca.</p>
+				</div>
+				<label class="distance-filter" for="distance-select">
+					Distância
+					<select id="distance-select" name="distance">
+						<option value="10">Até 10 km</option>
+						<option value="25">Até 25 km</option>
+						<option value="50">Até 50 km</option>
+					</select>
+				</label>
+			</div>
+
+			<div id="hemocenter-list" class="hemocenter-list" aria-live="polite">
+				<div id="empty-state" class="empty-state">
+					<div class="empty-state-icon" aria-hidden="true"><i data-lucide="map-pin"></i></div>
+					<h3>Busque por um local</h3>
+					<p>Use o campo acima para visualizar os hemocentros disponíveis na sua região.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<template id="hemocenter-card-template">
+		<article class="hemocenter-card" data-hemocenter-id="">
+			<div class="hemocenter-card-header">
+				<div class="hemocenter-icon" aria-hidden="true"><i data-lucide="droplet"></i></div>
+				<div>
+					<h3 data-field="name">Nome do hemocentro</h3>
+					<p data-field="distance">Distância não informada</p>
+				</div>
+			</div>
+			<address data-field="address">Endereço não informado</address>
+			<div class="hemocenter-card-details">
+				<p><strong>Horário:</strong> <span data-field="hours">Não informado</span></p>
+				<p><strong>Contato:</strong> <span data-field="phone">Não informado</span></p>
+			</div>
+			<div class="hemocenter-card-actions">
+				<a class="details-btn" data-field="details-link" href="#">Ver detalhes</a>
+				<a class="route-btn" data-field="route-link" href="#" target="_blank" rel="noopener">Traçar rota</a>
+			</div>
+		</article>
+	</template>
+
+	<footer class="main-footer">
+		<p>DOE+ &bull; Desenvolvido por MedIA-Tech &bull; 2026</p>
+	</footer>
+
+	<script src="https://unpkg.com/lucide@0.468.0"></script>
+	<script>window.lucide?.createIcons();</script>
+	<script src="hemocprox.js"></script>
+	<script src="../tela_acesso/sessao.js"></script>
+	<script src="../tela_perfil/perfil.js"></script>
+</body>
+</html>

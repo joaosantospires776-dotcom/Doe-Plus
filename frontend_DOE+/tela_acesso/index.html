@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acesse seu perfil de doador no DOE+.">
+  <title>Acessar | DOE+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="acesso.css">
+  <link rel="stylesheet" href="../brand.css">
+</head>
+<body>
+  <div class="splash-screen" id="splashScreen" aria-live="polite">
+    <div class="splash-content">
+      <img class="splash-brand doe-brand-image doe-brand-image--on-dark" src="../assets/logo-doe-plus.png" alt="DOE+">
+      <span class="splash-rule" aria-hidden="true"></span>
+      <p>Preparando seu espaço para doar.</p>
+    </div>
+  </div>
+
+  <main class="access-layout" id="accessLayout" hidden>
+    <section class="access-story" aria-labelledby="story-title">
+      <div class="plus-field" aria-hidden="true">
+        <span>+</span><span>+</span><span>+</span><span>+</span><span>+</span>
+        <span>+</span><span>+</span><span>+</span><span>+</span><span>+</span>
+      </div>
+      <a class="story-brand" href="../Tela inicial/index.html" aria-label="DOE+">DOE<span>+</span></a>
+      </a>
+      <div class="story-copy">
+        <span class="story-kicker">DOE+ <span class="kicker-line"></span> Cuidado que nos une</span>
+        <h1 id="story-title">Doe minutos,<br><span>salve uma vida inteira</span></h1>
+        <p>Um espaço para acompanhar sua jornada como doador e manter suas informações importantes por perto.</p>
+      </div>
+      <div class="story-footer">
+        <span class="story-mark" aria-hidden="true"><i data-lucide="droplet"></i></span>
+        <span></span>
+      </div>
+    </section>
+
+    <section class="auth-side" aria-labelledby="auth-title">
+      <div class="auth-content">
+        <section class="welcome-panel" id="welcomePanel" aria-labelledby="welcome-title">
+          <span class="mobile-brand">DOE<span>+</span></span>
+          <span class="auth-kicker">Acesso pessoal</span>
+          <h2 class="welcome-title" id="welcome-title">Olá, bem-vindo ao sistema <span>DOE<span>+</span></span></h2>
+          <p class="welcome-description">Uma plataforma desenvolvida especialmente para você, doador de sangue.</p>
+          <p class="welcome-prompt">Como deseja continuar?</p>
+          <div class="welcome-actions">
+            <button class="submit-button" id="openRegister" type="button">Cadastrar-se <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <button class="secondary-button" id="openLogin" type="button">Entrar</button>
+          </div>
+        </section>
+
+        <section class="auth-panel" id="loginPanel" aria-labelledby="auth-title" hidden>
+          <button class="back-button" type="button" data-back-to-welcome><i data-lucide="arrow-left" aria-hidden="true"></i> Voltar</button>
+          <header class="auth-heading">
+            <span class="auth-kicker">Acesso pessoal</span>
+            <h2 id="auth-title">Entre na sua conta</h2>
+            <p id="auth-description">Acesse seu espaço de doador.</p>
+          </header>
+          <form id="loginForm" class="auth-form">
+            <div class="field">
+              <label for="loginEmail">E-mail</label>
+              <input id="loginEmail" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+            </div>
+            <div class="field">
+              <label for="loginPassword">Senha</label>
+              <input id="loginPassword" name="password" type="password" autocomplete="current-password" minlength="8" required>
+            </div>
+            <p class="form-message" id="loginMessage" role="status" aria-live="polite"></p>
+            <button class="submit-button" type="submit">Entrar <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          </form>
+          <p class="switch-prompt">Ainda não tem cadastro? <button type="button" data-switch-mode="register">Criar perfil</button></p>
+        </section>
+
+        <section class="auth-panel" id="registerPanel" aria-labelledby="auth-title" hidden>
+          <button class="back-button" type="button" data-back-to-welcome><i data-lucide="arrow-left" aria-hidden="true"></i> Voltar</button>
+          <header class="auth-heading">
+            <span class="auth-kicker">Novo perfil</span>
+            <h2 id="register-title">Crie seu perfil</h2>
+            <p>Preencha seus dados para começar.</p>
+          </header>
+          <form id="registerForm" class="auth-form registration-form" autocomplete="off">
+            <div class="register-grid">
+              <div class="field field-wide">
+                <label for="registerName">Nome completo</label>
+                <input id="registerName" name="name" type="text" autocomplete="off" maxlength="100" required>
+              </div>
+              <div class="field field-wide">
+                <label for="registerEmail">E-mail</label>
+                <input id="registerEmail" name="email" type="email" autocomplete="off" maxlength="160" placeholder="voce@exemplo.com" required>
+              </div>
+              <div class="field">
+                <label for="registerPassword">Senha</label>
+                <div class="password-input-wrapper">
+                  <input id="registerPassword" name="password" type="password" autocomplete="off" minlength="8" required>
+                  <button class="password-toggle" type="button" data-password-toggle aria-label="Mostrar senha" aria-pressed="false">
+                    <i data-lucide="eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="field">
+                <label for="confirmPassword">Confirme a senha</label>
+                <div class="password-input-wrapper">
+                  <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="off" minlength="8" required>
+                  <button class="password-toggle" type="button" data-password-toggle aria-label="Mostrar senha" aria-pressed="false">
+                    <i data-lucide="eye" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="field">
+                <label for="registerAge">Idade</label>
+                <input id="registerAge" name="age" type="number" inputmode="numeric" min="1" max="120" autocomplete="off" required>
+              </div>
+              <div class="field">
+                <label for="registerBloodType">Tipo sanguíneo</label>
+                <select id="registerBloodType" name="bloodType" required>
+                  <option value="">Selecione</option>
+                  <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                  <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="registerCpf">CPF</label>
+                <input id="registerCpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14" required>
+              </div>
+              <div class="field">
+                <label for="registerPhone">Telefone</label>
+                <input id="registerPhone" name="phone" type="tel" inputmode="tel" autocomplete="off" placeholder="(00) 00000-0000" maxlength="15" required>
+              </div>
+              <div class="field field-wide">
+                <label for="registerHemocenter">Hemocentro favorito ou mais próximo</label>
+                <input id="registerHemocenter" name="hemocenter" type="text" autocomplete="off" maxlength="120" placeholder="Nome da unidade ou cidade" required>
+              </div>
+              <div class="field">
+                <label for="registerEmergencyName">Contato de emergência</label>
+                <input id="registerEmergencyName" name="emergencyName" type="text" autocomplete="off" maxlength="100" required>
+              </div>
+              <div class="field">
+                <label for="registerEmergencyPhone">Telefone de emergência</label>
+                <input id="registerEmergencyPhone" name="emergencyPhone" type="tel" inputmode="tel" autocomplete="off" placeholder="(00) 00000-0000" maxlength="15" required>
+              </div>
+            </div>
+            <p class="form-message" id="registerMessage" role="status" aria-live="polite"></p>
+            <button class="submit-button" type="submit">Criar perfil <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          </form>
+          <p class="switch-prompt">Já tem cadastro? <button type="button" data-switch-mode="login">Entrar</button></p>
+        </section>
+      </div>
+      <footer class="auth-footer">DOE+ &bull; Desenvolvido por MedIA-Tech &bull; 2026</footer>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/lucide@0.468.0"></script>
+  <script>window.lucide?.createIcons();</script>
+  <script src="sessao.js"></script>
+  <script src="acesso.js"></script>
+</body>
+</html>

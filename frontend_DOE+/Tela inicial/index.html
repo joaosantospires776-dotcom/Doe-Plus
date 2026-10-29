@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOE+ | Te incentivando para ajudar mais vidas!</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../brand.css">
+</head>
+<body>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar" aria-hidden="true">
+        <div class="sidebar-header">
+            <span class="logo-text">DOE<span class="plus-symbol">+</span></span>
+            <button class="close-btn" id="closeMenuBtn" aria-label="Fechar menu">&times;</button>
+        </div>
+
+        <nav class="sidebar-nav">
+            
+            <button class="menu-item" onclick="window.location.href='../tela_dashboard/index.html'">
+                <span class="icon"></span> Dashboard Pessoal
+            </button>
+            <button class="menu-item" onclick="window.location.href='../tela benefícios/index.html'">
+                <span class="icon"></span> Benefícios
+            </button>
+            <button class="menu-item" onclick="window.location.href='../tela_chatbot/index.html'">
+                <span class="icon"></span> Conversar com LIA
+            </button>
+            <button class="menu-item" onclick="window.location.href='../tela_hemoc_próximos/hemocprox.html'">
+                <span class="icon"></span> Hemocentros próximos
+            </button>
+            <button class="menu-item" onclick="window.location.href='../tela_perfil/index.html'">
+                <span class="icon"></span> Meu perfil
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Desenvolvido por MedIA-Tech &bull; 2026</p>
+        </div>
+    </aside>
+
+    <header class="top-header">
+        <button class="hamburger-btn" id="openMenuBtn" aria-label="Abrir menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <a class="brand doe-brand-link" href="index.html" aria-label="DOE+ - tela inicial">
+            <img class="doe-brand-image" src="../assets/logo-doe-plus.png" alt="DOE+">
+        </a>
+
+        <a class="user-quick-profile" href="../tela_perfil/index.html" aria-label="Abrir meu perfil">
+            <span class="avatar profile-avatar" data-profile-avatar>U</span>
+        </a>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="dashboard-container">
+
+        <!-- Mensagem de Boas-Vindas -->
+        <section class="welcome-card">
+            <div class="welcome-text">
+                <h2>Olá, <span class="user-name">Usuário</span>!</h2>
+                <p>Transforme solidariedade em esperança!</p>
+            </div>
+        </section>
+
+        <!-- Nível Atual e Progresso -->
+        <section class="level-card level-intermediario">
+            <div class="level-badge-container">
+                <div class="badge-ring">
+                    <span class="badge-icon"><i data-lucide="droplet" aria-hidden="true"></i></span>
+                </div>
+                <div class="level-info">
+                    <span class="level-tag">Nível Atual</span>
+                    <h3>INTERMEDIÁRIO</h3>
+                    <p class="subtext">Próximo Nível: <strong>Avançado</strong></p>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-labels">
+                    <span>Doações realizadas: <strong>3/4</strong></span>
+                    <button class="btn-link" onclick="window.location.href='../tela_dashboard/index.html'">Ver mais detalhes</button>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 75%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card Chatbot LIA -->
+        <section class="lia-card">
+            <div class="lia-content">
+                <div class="lia-avatar"><i data-lucide="message-circle" aria-hidden="true"></i></div>
+                <div class="lia-text">
+                    <h3>Atendimento Inteligente LIA</h3>
+                    <p>Converse com o nosso chatbot e verifique o dia ideal para a sua doação!</p>
+                </div>
+            </div>
+            <button class="lia-btn" onclick="window.location.href='../tela_chatbot/index.html'">Verificar com a LIA</button>
+        </section>
+
+     
+        <section class="benefits-section">
+            <div class="section-title">
+                <div>
+                    <h3>Seus Benefícios Desbloqueados</h3>
+                    <span class="benefits-count">3 disponíveis para ativação</span>
+                </div>
+                <button class="btn-link" onclick="window.location.href='../tela benefícios/index.html'">Ver todos</button>
+            </div>
+
+            <div class="benefits-grid">
+                <article class="benefit-card">
+                    <div class="benefit-icon teal"><i data-lucide="utensils" aria-hidden="true"></i></div>
+                    <div class="benefit-details">
+                        <h4>10% de desconto no César Lanches</h4>
+                        <p>Válido apenas às quintas-feiras</p>
+                    </div>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon red"><i data-lucide="sandwich" aria-hidden="true"></i></div>
+                    <div class="benefit-details">
+                        <h4>Vale 1 Hambúrguer no Rota 98</h4>
+                        <p>Hambúrguer de Frango Empanado ou Carne Simples</p>
+                    </div>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon teal"><i data-lucide="sparkles" aria-hidden="true"></i></div>
+                    <div class="benefit-details">
+                        <h4>50% de desconto no SPA da Sandra</h4>
+                        <p>Válido apenas para sábados e domingos</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>DOE+ &bull; Desenvolvido por MedIA-Tech &bull; 2026</p>
+    </footer>
+
+   
+    <script src="script.js"></script>
+    <script src="../tela_acesso/sessao.js"></script>
+    <script src="../tela_perfil/perfil.js"></script>
+    <script src="api.js"></script>
+</body>
+</html>

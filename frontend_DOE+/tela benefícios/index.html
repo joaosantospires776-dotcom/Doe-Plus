@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOE+ | Benefícios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="benefícios.css" />
+<link rel="stylesheet" href="../brand.css" />
+</head>
+<body>
+
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="side-menu-header">
+      <span class="side-menu-title">DOE<span class="logo-plus">+</span></span>
+      <button class="close-menu" id="closeMenu" aria-label="Fechar menu">&times;</button>
+    </div>
+    <nav class="side-menu-links">
+      <button class="menu-btn" onclick="window.location.href='../Tela inicial/index.html'">Tela Inicial</button>
+      <button class="menu-btn" onclick="window.location.href='../tela_dashboard/index.html'">Dashboard</button>
+      <button class="menu-btn" onclick="window.location.href='../tela_chatbot/index.html'">Converse com a LIA</button>
+      <button class="menu-btn" onclick="window.location.href='../tela_hemoc_próximos/hemocprox.html'">Hemocentros próximos</button>
+      <button class="menu-btn" onclick="window.location.href='../tela_perfil/index.html'">Meu perfil</button>
+    </nav>
+  </aside>
+
+  <header class="topbar">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="sideMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="logo doe-brand-link" href="../Tela inicial/index.html" aria-label="DOE+ - tela inicial"><img class="doe-brand-image" src="../assets/logo-doe-plus.png" alt="DOE+" /></a>
+    <a class="avatar profile-avatar profile-link" data-profile-avatar href="../tela_perfil/index.html" aria-label="Abrir meu perfil">U</a>
+  </header>
+
+  <main class="container">
+
+    <section class="level-card">
+      <div class="level-header">
+        <div class="level-icon"><i data-lucide="droplet" aria-hidden="true"></i></div>
+        <div>
+          <h2 class="eyebrow">Nível intermediário</h2>
+          <p class="muted">Próximo nível: Doador Avançado</p>
+        </div>
+      </div>
+      <div class="progress-info">
+        <span>3 doações realizadas</span>
+        <span>Meta: 4</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" style="width: 80%"></div>
+      </div>
+    </section>
+
+    <section class="benefits-section">
+      <div class="section-heading">
+        <h2>Seus Benefícios</h2>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" data-tab="ativos" role="tab" aria-selected="true">Ativos</button>
+        <button class="tab-btn" data-tab="disponiveis" role="tab" aria-selected="false">Disponíveis</button>
+        <button class="tab-btn" data-tab="usados" role="tab" aria-selected="false">Usados</button>
+        <button class="tab-btn" data-tab="proximo" role="tab" aria-selected="false">Próximo nível</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="ativos">
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon icon-orange"><i data-lucide="utensils" aria-hidden="true"></i></div>
+            <div>
+              <h3>10% de desconto no César Lanches</h3>
+              <p>Válido apenas às quintas-feiras</p>
+            </div>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon icon-pink"><i data-lucide="sandwich" aria-hidden="true"></i></div>
+            <div>
+              <h3>Vale 1 Hambúrguer no Rota 98</h3>
+              <p>Hambúrguer de Frango Empanado ou Carne Simples</p>
+            </div>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon icon-mint"><i data-lucide="sparkles" aria-hidden="true"></i></div>
+            <div>
+              <h3>50% de desconto no SPA da Sandra</h3>
+              <p>Válido apenas para sábados e domingos</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="disponiveis">
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon icon-mint"><i data-lucide="book-open" aria-hidden="true"></i></div>
+            <div>
+              <h3>20% de desconto na Livraria Página Viva</h3>
+              <p>Válido em qualquer dia da semana</p>
+              <button class="btn-activate">Ativar</button>
+            </div>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon icon-orange"><i data-lucide="brain" aria-hidden="true"></i></div>
+            <div>
+              <h3>1 mês grátis no app Calma+</h3>
+              <p>Meditação guiada e sono</p>
+              <button class="btn-activate">Ativar</button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="usados">
+        <div class="benefits-grid">
+          <article class="benefit-card used">
+            <div class="benefit-icon icon-mint"><i data-lucide="coffee" aria-hidden="true"></i></div>
+            <div>
+              <h3>Vale-café na Cafeteria Grão Nobre</h3>
+              <p>Usado em 10/07/2026</p>
+              <span class="used-badge">Usado</span>
+            </div>
+          </article>
+          <article class="benefit-card used">
+            <div class="benefit-icon icon-pink"><i data-lucide="pill" aria-hidden="true"></i></div>
+            <div>
+              <h3>10% de desconto na Farmácia Vida</h3>
+              <p>Usado em 22/05/2026</p>
+              <span class="used-badge">Usado</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="proximo">
+        <p class="muted small">Desbloqueados ao atingir o nível Doador Pró:</p>
+        <div class="benefits-grid">
+          <article class="benefit-card locked">
+            <div class="benefit-icon icon-orange"><i data-lucide="utensils" aria-hidden="true"></i></div>
+            <div>
+              <h3>30% de desconto no Sabor Caseiro</h3>
+              <p>Almoço ou jantar completo</p>
+              <span class="lock-badge"><i data-lucide="lock" aria-hidden="true"></i> Nível Avançado</span>
+            </div>
+          </article>
+          <article class="benefit-card locked">
+            <div class="benefit-icon icon-pink"><i data-lucide="film" aria-hidden="true"></i></div>
+            <div>
+              <h3>Ingresso grátis no CineMax</h3>
+              <p>1 ingresso por mês</p>
+              <span class="lock-badge"><i data-lucide="lock" aria-hidden="true"></i> Nível Avançado</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gov-section">
+      <div class="section-heading">
+        <h2>Benefícios do Governo</h2>
+        <span class="badge badge-gov">Direito garantido</span>
+      </div>
+      <p class="gov-disclaimer">Direitos previstos em lei para quem doa sangue no Brasil. As regras podem variar de acordo com o estado ou município.</p>
+      <div class="gov-list">
+        <article class="gov-item">
+          <div class="gov-icon"><i data-lucide="briefcase" aria-hidden="true"></i></div>
+          <div>
+            <h3>1 dia de folga no trabalho</h3>
+            <p>A cada doação, conforme a CLT (Art. 473)</p>
+          </div>
+        </article>
+        <article class="gov-item">
+          <div class="gov-icon"><i data-lucide="building-2" aria-hidden="true"></i></div>
+          <div>
+            <h3>Prioridade de atendimento no SUS</h3>
+            <p>Ao apresentar o cartão de doador, em unidades participantes</p>
+          </div>
+        </article>
+        <article class="gov-item">
+          <div class="gov-icon"><i data-lucide="clipboard-list" aria-hidden="true"></i></div>
+          <div>
+            <h3>Isenção de taxa em concursos públicos</h3>
+            <p>Prevista em leis de alguns estados e órgãos públicos</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    DOE+ • Desenvolvido por MedIA-Tech • 2026
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.468.0"></script>
+  <script>window.lucide?.createIcons();</script>
+  <script src="script.js"></script>
+  <script src="../tela_acesso/sessao.js"></script>
+  <script src="../tela_perfil/perfil.js"></script>
+</body>
+</html>

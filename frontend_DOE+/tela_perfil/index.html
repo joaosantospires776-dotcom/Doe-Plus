@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gerencie seus dados de perfil no DOE+.">
+  <title>Meu perfil | DOE+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="perfil.css">
+  <link rel="stylesheet" href="../brand.css">
+</head>
+<body>
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <div class="side-menu-header">
+      <span class="side-menu-title">DOE<span class="logo-plus">+</span></span>
+      <button class="close-menu" id="closeMenu" type="button" aria-label="Fechar menu">&times;</button>
+    </div>
+    <nav class="side-menu-links" aria-label="Navegação principal">
+      <a class="menu-btn" href="../Tela inicial/index.html">Tela inicial</a>
+      <a class="menu-btn" href="../tela_dashboard/index.html">Dashboard pessoal</a>
+      <a class="menu-btn" href="../tela benefícios/index.html">Benefícios</a>
+      <a class="menu-btn" href="../tela_chatbot/index.html">Conversar com a LIA</a>
+      <a class="menu-btn active-page" href="index.html" aria-current="page">Meu perfil</a>
+      <a class="menu-btn" href="../tela_hemoc_próximos/hemocprox.html">Hemocentros próximos</a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="logout-button" id="logoutBtn" type="button">Sair da conta</button>
+      <p>Doe sangue. Fortaleça vidas.</p>
+    </div>
+  </aside>
+
+  <header class="top-header">
+    <button class="hamburger-btn" id="openMenuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sideMenu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <a class="brand doe-brand-link" href="../Tela inicial/index.html" aria-label="Ir para a tela inicial"><img class="doe-brand-image" src="../assets/logo-doe-plus.png" alt="DOE+"></a>
+    <a class="user-quick-profile" href="index.html" aria-label="Meu perfil">
+      <span class="avatar profile-avatar" data-profile-avatar>U</span>
+    </a>
+  </header>
+
+  <main class="profile-container">
+    <section class="page-intro" aria-labelledby="page-title">
+      <span class="section-kicker">Conta pessoal</span>
+      <h1 id="page-title">Meu perfil</h1>
+      <p>Confira e mantenha seus dados de contato atualizados.</p>
+    </section>
+
+    <section class="profile-panel" aria-label="Dados do perfil">
+      <div class="photo-panel">
+        <div class="profile-preview profile-avatar" id="profilePreview" aria-label="Prévia da foto do perfil">U</div>
+        <div>
+          <h2>Foto do perfil</h2>
+          <p>A foto também será exibida no avatar das outras telas.</p>
+        </div>
+        <input class="visually-hidden" id="photoInput" type="file" accept="image/png,image/jpeg,image/webp">
+        <label class="photo-upload" for="photoInput">
+          <i data-lucide="camera" aria-hidden="true"></i>
+          Escolher foto
+        </label>
+        <button class="remove-photo" id="removePhoto" type="button">Remover foto</button>
+        <span class="photo-hint">JPG, PNG ou WebP. Máximo de 5 MB.</span>
+      </div>
+
+      <form class="profile-form" id="profileForm">
+        <div class="form-heading">
+          <h2>Informações pessoais</h2>
+          <p>Você pode atualizar estes dados quando precisar.</p>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-field field-name">
+            <label for="profileName">Nome completo</label>
+            <input id="profileName" name="name" type="text" autocomplete="name" maxlength="100" required>
+          </div>
+          <div class="form-field field-email">
+            <label for="profileEmail">E-mail</label>
+            <input id="profileEmail" name="email" type="email" autocomplete="email" maxlength="160" required>
+          </div>
+          <div class="form-field">
+            <label for="profileAge">Idade</label>
+            <div class="input-suffix">
+              <input id="profileAge" name="age" type="number" inputmode="numeric" min="1" max="120" autocomplete="off">
+              <span>anos</span>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="profileCpf">CPF</label>
+            <input id="profileCpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14">
+          </div>
+          <div class="form-field">
+            <label for="profilePhone">Telefone</label>
+            <input id="profilePhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" maxlength="15">
+          </div>
+          <div class="form-field">
+            <label for="profileBloodType">Tipo sanguíneo</label>
+            <select id="profileBloodType" name="bloodType" required>
+              <option value="">Selecione</option>
+              <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+              <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+            </select>
+          </div>
+          <div class="form-field field-hemocenter">
+            <label for="profileHemocenter">Hemocentro favorito ou mais próximo</label>
+            <input id="profileHemocenter" name="hemocenter" type="text" maxlength="120" placeholder="Nome da unidade ou cidade">
+          </div>
+          <div class="form-field">
+            <label for="profileEmergencyName">Contato de emergência</label>
+            <input id="profileEmergencyName" name="emergencyName" type="text" autocomplete="off" maxlength="100">
+          </div>
+          <div class="form-field">
+            <label for="profileEmergencyPhone">Telefone de emergência</label>
+            <input id="profileEmergencyPhone" name="emergencyPhone" type="tel" inputmode="tel" autocomplete="off" placeholder="(00) 00000-0000" maxlength="15">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <button class="save-button" type="submit">Salvar alterações</button>
+        </div>
+
+        <section class="account-actions" aria-labelledby="account-actions-title">
+          <div>
+            <h2 id="account-actions-title">Acesso à conta</h2>
+            <p>Encerre sua sessão ou apague sua conta.</p>
+          </div>
+          <div class="account-actions-buttons">
+            <button class="logout-button" id="logoutFromProfile" type="button">Sair da conta</button>
+            <button class="delete-account-button" id="deleteAccountBtn" type="button">
+              <i data-lucide="trash-2" aria-hidden="true"></i>
+              Apagar conta
+            </button>
+          </div>
+        </section>
+      </form>
+    </section>
+  </main>
+
+  <dialog class="confirm-dialog" id="logoutDialog" aria-labelledby="logoutDialogTitle" aria-describedby="logoutDialogText">
+    <div class="dialog-mark"><i data-lucide="log-out" aria-hidden="true"></i></div>
+    <h2 id="logoutDialogTitle">Deseja sair da conta?</h2>
+    <p id="logoutDialogText">Ao sair, os dados temporários desta conta serão apagados desta aba.</p>
+    <div class="dialog-actions">
+      <button class="dialog-cancel" id="cancelLogout" type="button">Continuar no perfil</button>
+      <button class="dialog-confirm" id="confirmLogout" type="button">Sair da conta</button>
+    </div>
+  </dialog>
+
+  <dialog class="confirm-dialog danger-dialog" id="deleteAccountDialog" aria-labelledby="deleteDialogTitle" aria-describedby="deleteDialogText">
+    <div class="dialog-mark"><i data-lucide="triangle-alert" aria-hidden="true"></i></div>
+    <h2 id="deleteDialogTitle">Apagar esta conta?</h2>
+    <p id="deleteDialogText">Nome, foto e demais informações temporárias desta conta serão apagados desta aba. Essa ação não pode ser desfeita.</p>
+    <div class="dialog-actions">
+      <button class="dialog-cancel" id="cancelDelete" type="button">Manter conta</button>
+      <button class="dialog-confirm" id="confirmDelete" type="button">Apagar e voltar ao cadastro</button>
+    </div>
+  </dialog>
+
+  <footer class="main-footer">
+    <p>DOE+ &bull; Desenvolvido por MedIA-Tech &bull; 2026</p>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@0.468.0"></script>
+  <script>window.lucide?.createIcons();</script>
+  <script src="../tela_acesso/sessao.js"></script>
+  <script src="perfil.js"></script>
+</body>
+</html>

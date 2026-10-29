@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça os recursos do DOE+ e veja como começar.">
+  <title>Conheça os recursos | DOE+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="boasvindas.css">
+  <link rel="stylesheet" href="../brand.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand doe-brand-link" href="index.html" aria-label="DOE+ - início">
+      <img class="doe-brand-image" src="../assets/logo-doe-plus.png" alt="DOE+">
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="servico.html?feature=hemocentros" data-feature-link="hemocentros" data-destination="hemocentros">Hemocentros</a>
+      <a href="servico.html?feature=beneficios" data-feature-link="beneficios" data-destination="beneficios">Benefícios</a>
+      <a href="servico.html?feature=lia" data-feature-link="lia" data-destination="lia">LIA</a>
+      <a href="servico.html?feature=painel" data-feature-link="painel" data-destination="painel">Dashboard</a>
+    </nav>
+    <a class="access-link" href="../tela_acesso/index.html">Entrar <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+  </header>
+
+  <main class="service-page" id="servicePage">
+    <a class="service-back" href="index.html"><i data-lucide="arrow-left" aria-hidden="true"></i> Início</a>
+    <section class="service-intro" aria-labelledby="serviceTitle">
+      <p class="eyebrow"><span></span>DOE+ para você</p>
+      <h1 id="serviceTitle">Conheça o DOE+</h1>
+      <p class="service-description" id="serviceDescription"></p>
+    </section>
+
+    <section class="service-content" aria-label="Como funciona">
+      <div class="service-steps" id="serviceSteps"></div>
+      <aside class="service-access" aria-labelledby="accessTitle">
+        <span class="path-icon" id="serviceIcon"><i data-lucide="heart-handshake" aria-hidden="true"></i></span>
+        <p class="eyebrow">Seu próximo passo</p>
+        <h2 id="accessTitle">Comece sua jornada</h2>
+        <p id="accessDescription">Crie seu perfil ou entre para acessar este recurso.</p>
+        <a class="primary-action" id="servicePrimaryAction" href="../tela_acesso/index.html?mode=register">Criar meu perfil <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+        <a class="service-login" id="serviceLoginAction" href="../tela_acesso/index.html?mode=login">Já tenho cadastro</a>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer"><span>DOE<span>+</span></span><p>Desenvolvido por MedIA-Tech &bull; 2026</p><a href="../tela_acesso/index.html">Acessar minha conta</a></footer>
+
+  <script src="https://unpkg.com/lucide@0.468.0"></script>
+  <script>window.lucide?.createIcons();</script>
+  <script src="servico.js"></script>
+</body>
+</html>

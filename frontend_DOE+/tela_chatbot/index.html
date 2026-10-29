@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIA - DOE+</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styleLIA.css">
+    <link rel="stylesheet" href="../brand.css">
+</head>
+<body>
+    <!-- OVERLAY E MENU LATERAL (Cole no início do <body>) -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="side-menu" id="sideMenu" aria-hidden="true">
+  <div class="side-menu-header">
+    <span class="side-menu-title">DOE<span class="logo-plus">+</span></span>
+    <button class="close-menu" id="closeMenu" aria-label="Fechar menu">&times;</button>
+  </div>
+  <nav class="side-menu-links">
+        <button class="menu-btn" onclick="window.location.href='../Tela inicial/index.html'">Tela Inicial</button>
+        <button class="menu-btn" onclick="window.location.href='../tela_dashboard/index.html'">Dashboard Pessoal</button>
+        <button class="menu-btn" onclick="window.location.href='../tela benefícios/index.html'">Benefícios</button>
+        <button class="menu-btn" onclick="window.location.href='../tela_hemoc_próximos/hemocprox.html'">Hemocentros próximos</button>
+    <button class="menu-btn" onclick="window.location.href='../tela_perfil/index.html'">Meu perfil</button>
+  </nav>
+        <div class="sidebar-footer">
+            <p>Doe sangue. Fortaleça vidas.</p>
+        </div>
+    </aside>
+
+    <!-- Topbar Unificada -->
+    <header class="top-header">
+        <button class="hamburger-btn" id="openMenuBtn" aria-label="Abrir menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span> <!-- Adicione esta linha -->
+</button>
+
+        <a class="brand doe-brand-link" href="../Tela inicial/index.html" aria-label="DOE+ - tela inicial">
+            <img class="doe-brand-image" src="../assets/logo-doe-plus.png" alt="DOE+">
+        </a>
+
+        <a class="user-quick-profile" href="../tela_perfil/index.html" aria-label="Abrir meu perfil">
+            <span class="avatar profile-avatar" data-profile-avatar>U</span>
+        </a>
+    </header>
+
+    <!-- Esteira de Animação (Marquee Contínuo) -->
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <span>Doe sangue, salve vidas • Próxima campanha de doação no dia 15/09 • Agende sua consulta com a LIA • Doe sangue, salve vidas • Próxima campanha de doação no dia 15/09 • Agende sua consulta com a LIA</span>
+        </div>
+    </div>
+
+    <!-- Três Botões Principais -->
+   
+
+    <!-- Container do Chatbot LIA -->
+    <main class="chat-container">
+        <div class="chat-header">
+            <div class="lia-avatar-header"><i data-lucide="message-circle" aria-hidden="true"></i></div>
+            <div class="lia-info">
+                <h2>LIA <span class="status-dot"></span></h2>
+                <p>Assistente Virtual • <span>DOE+</span></p>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            <div class="message lia-message">
+                <div class="message-content">
+                    <p>Olá, <strong>Usuário</strong>! Sou a <strong>LIA</strong>, sua assistente virtual no <strong>DOE+</strong>.</p>
+                    <p>Como posso te ajudar hoje com suas dúvidas sobre doação, seus benefícios ou como utilizar o nosso sistema?</p>
+                </div>
+            </div>
+
+            <!-- Sugestões de Perguntas -->
+            <div class="suggestions-container" id="suggestions">
+                <p class="suggestions-title"><i data-lucide="lightbulb" aria-hidden="true"></i> Dúvidas frequentes</p>
+                <div class="suggestions-grid">
+                    <button class="chip-btn" onclick="sendSuggested('Como funciona a meia-entrada?')"><i data-lucide="ticket" aria-hidden="true"></i> Meia-entrada para doadores</button>
+                    <button class="chip-btn" onclick="sendSuggested('Qual o intervalo mínimo entre doações?')"><i data-lucide="clock" aria-hidden="true"></i> Intervalo entre doações</button>
+                    <button class="chip-btn" onclick="sendSuggested('Quais os requisitos básicos para doar sangue?')"><i data-lucide="clipboard-list" aria-hidden="true"></i> Requisitos para doar</button>
+                    <button class="chip-btn" onclick="sendSuggested('Como subir de nível?')"><i data-lucide="trending-up" aria-hidden="true"></i> Como subir de nível?</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <form id="chat-form">
+                <input
+                    type="text"
+                    id="chat-input"
+                    placeholder="Digite sua dúvida para a LIA..."
+                    autocomplete="off"
+                    required
+                />
+                <button type="submit" class="send-btn" aria-label="Enviar Mensagem">
+                    <i data-lucide="send" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+<p>DOE+ &bull; Desenvolvido por MedIA-Tech &bull; 2026</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@0.468.0"></script>
+    <script>window.lucide?.createIcons();</script>
+        <script src="scriptchatbot.js"></script>
+    <script src="../tela_acesso/sessao.js"></script>
+    <script src="../tela_perfil/perfil.js"></script>
+</body>
+</html>

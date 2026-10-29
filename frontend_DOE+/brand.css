@@ -1,0 +1,61 @@
+:root {
+  --doe-red: #e63950;
+  --doe-red-dark: #c81e2e;
+  --doe-teal: #0e9488;
+  --doe-teal-dark: #08766d;
+  --doe-teal-soft: #d9f2ec;
+  --doe-background: #f4f7f6;
+  --doe-ink: #1d2d44;
+  --doe-muted: #6c757d;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+.doe-brand-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.doe-brand-image {
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+}
+
+.doe-brand-image--on-dark {
+  width: 108px;
+  height: 108px;
+  padding: 9px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.doe-brand-image--mobile {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 12px;
+}
+
+@media (max-width: 600px) {
+  .doe-brand-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .doe-brand-image--on-dark {
+    width: 92px;
+    height: 92px;
+  }
+}

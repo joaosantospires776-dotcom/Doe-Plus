@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "frontend_DOE+",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501
+	}
+}

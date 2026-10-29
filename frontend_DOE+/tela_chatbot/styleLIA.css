@@ -1,0 +1,595 @@
+/* ==========================================================================
+   DESIGN SYSTEM & VARIÁVEIS COMPARTILHADAS (DOE+)
+   ========================================================================== */
+:root {
+  --red-primary: #E63950;
+  --red-hover: #C81E2E;
+  --red-soft: #FBE4E7;
+
+  --teal-primary: #0E9488;
+  --teal-dark: #08766D;
+  --teal-soft: #D9F2EC;
+  --accent-amber: #A96F08;
+  --accent-amber-light: #FFF1D2;
+
+  --bg-main: #F4F7F6;
+  --surface-card: #FFFFFF;
+  --text-dark: #1D2D44;
+  --text-muted: #6C757D;
+
+  --border-radius-lg: 20px;
+  --border-radius-md: 12px;
+  --border-radius-sm: 8px;
+
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.08);
+  --font-family: 'Outfit', sans-serif;
+}
+
+/* ==========================================================================
+   RESET E BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+html {
+  scrollbar-color: var(--teal-primary) var(--bg-main);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--bg-main);
+  border-radius: 999px;
+  background: var(--teal-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal-dark);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   HEADER SUPERIOR (PADRÃO DOE+)
+   ========================================================================== */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: var(--surface-card);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.hamburger-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.hamburger-btn .bar {
+  width: 24px;
+  height: 3px;
+  background-color: var(--red-primary);
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.brand h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.brand h1 span {
+  color: var(--red-primary);
+}
+
+.user-quick-profile .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--teal-primary);
+}
+
+.user-quick-profile {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.profile-avatar {
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profile-avatar.has-photo {
+  color: transparent;
+}
+
+/* ==========================================================================
+   MENU LATERAL (SIDE MENU)
+   ========================================================================== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100vh;
+  background: var(--surface-card);
+  z-index: 100;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem 1.5rem;
+}
+
+.side-menu.active {
+  left: 0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(29, 45, 68, 0.4);
+  backdrop-filter: blur(3px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #E9ECEF;
+  margin-bottom: 1.5rem;
+}
+
+.side-menu-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.logo-plus {
+  color: var(--red-primary);
+}
+
+.close-menu {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.close-menu:hover {
+  color: var(--red-primary);
+}
+
+.side-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex-grow: 1;
+}
+
+/* Botões do Menu: Neutros por padrão, ativando verde-água no hover/ativo */
+.menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+/* Só muda de cor QUANDO o mouse está em cima (hover) */
+.menu-btn:hover {
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+}
+
+/* Fica destacado permanentemente na página em que o usuário está */
+.menu-btn.active-page {
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+
+.sidebar-footer {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #E9ECEF;
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL DO CHATBOT
+   ========================================================================== */
+.chat-container {
+  max-width: 1600px;
+  width: 96%;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+  height: 75vh;
+  background: var(--surface-card);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid #E9ECEF;
+  overflow: hidden;
+}
+
+/* BARRA DE COMUNICADOS (MARQUEE) */
+.marquee-container {
+  width: 100%;
+  background: linear-gradient(110deg, var(--teal-primary), var(--teal-dark) 58%, var(--text-dark));
+  border: 0;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  padding: 10px 0;
+  white-space: nowrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker 25s linear infinite;
+  padding: 0 25px;
+  font-size: 0.88rem;
+  color: #FFFFFF;
+}
+
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* BOTÕES DE AÇÕES RÁPIDAS (ESTILO CARD DOE+) */
+.quick-actions-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+.action-btn {
+  background: var(--surface-card);
+  border: 1px solid #E9ECEF;
+  border-radius: var(--border-radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--teal-primary);
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+  box-shadow: var(--shadow-hover);
+}
+
+/* CABEÇALHO DA LIA */
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, var(--teal-soft) 0%, #FFFFFF 100%);
+  border-bottom: 1px solid #E9ECEF;
+}
+
+.lia-avatar-header {
+  width: 44px;
+  height: 44px;
+  background: var(--teal-primary);
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 3px 10px rgba(14, 148, 136, 0.25);
+  position: relative;
+}
+
+.lia-avatar-header svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.8;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--teal-primary);
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  margin-left: 4px;
+}
+
+.lia-info h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.lia-info p {
+  font-size: 0.8rem;
+  color: var(--teal-dark);
+  font-weight: 600;
+}
+
+/* ÁREA DE BALÕES DE MENSAGENS */
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #FAFCFC;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lia-message {
+  align-self: flex-start;
+}
+
+.user-message {
+  align-self: flex-end;
+}
+
+.message-content {
+  padding: 14px 18px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Mensagem da LIA (Bot) */
+.lia-message .message-content {
+  background: var(--surface-card);
+  color: var(--text-dark);
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #E9ECEF;
+}
+
+/* Mensagem do Usuário */
+.user-message .message-content {
+  background: var(--teal-primary);
+  color: #FFFFFF;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 3px 10px rgba(14, 148, 136, 0.2);
+}
+
+.message-time {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  padding: 0 4px;
+}
+
+.user-message .message-time {
+  align-self: flex-end;
+}
+
+/* SUGESTÕES RÁPIDAS (CHIPS) */
+.suggestions-container {
+  padding: 12px 20px;
+  background: #FFFFFF;
+  border-top: 1px solid #E9ECEF;
+}
+
+.suggestions-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.suggestions-title svg {
+  width: 15px;
+  height: 15px;
+  color: var(--accent-amber);
+}
+
+.suggestions-grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--teal-soft);
+  color: var(--teal-dark);
+  border: 1px solid rgba(14, 148, 136, 0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chip-btn svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  stroke-width: 1.8;
+}
+
+.chip-btn:hover {
+  background: var(--teal-primary);
+  color: #FFFFFF;
+  border-color: var(--teal-primary);
+}
+
+/* CAMPO DE ENTRADA (INPUT + BOTÃO DE ENVIAR) */
+.chat-input-area {
+  display: flex;
+  padding: 20px 24px;
+  background: #FFFFFF;
+  border-top: 1px solid #E9ECEF;
+}
+
+.chat-input-area form,
+#chat-form {
+  display: flex;
+  width: 100%;
+  gap: 14px;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 18px 22px;
+  border: 1px solid #E9ECEF;
+  border-radius: var(--border-radius-md);
+  font-size: 1.1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-input-area input:focus {
+  border-color: var(--teal-primary);
+  box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.12);
+}
+
+.send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red-primary);
+  color: #FFFFFF;
+  border: none;
+  padding: 18px 30px;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.send-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.send-btn:hover {
+  background: var(--red-hover);
+  transform: translateY(-1px);
+}
+
+.send-btn:active {
+  transform: translateY(0);
+}
+
+/* FOOTER */
+.main-footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+  .chat-container {
+    width: 100%;
+    height: 500px;
+  }
+  .quick-actions-container {
+    grid-template-columns: 1fr;
+  }
+}
